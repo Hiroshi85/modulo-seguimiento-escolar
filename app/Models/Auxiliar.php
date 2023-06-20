@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Auxiliar extends Model
 {
     use HasFactory;
+    protected $table ="auxiliar";
+    protected $primaryKey ="id";
+    public $timestamps = true;
+    protected $fillable = ['nombres', 'apellidos', 'telefono', "genero","correo"];
 }

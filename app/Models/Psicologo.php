@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Psicologo extends Model
 {
     use HasFactory;
+    protected $table ="psicologo";
+    protected $primaryKey ="id";
+    public $timestamps = true;
+    protected $fillable = ['nombres', 'apellidos', 'telefono', "genero","correo"];
+
+    public function prueba_psicologica()
+    {
+        return $this->hasMany(PruebaPsicologica::class);
+    }
 }
