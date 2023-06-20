@@ -31,7 +31,7 @@
                     <x-nav-link :href="route('psicologos.index')" :active="request()->routeIs('psicologo.index')">
                         {{ __('Psicólogo') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('pruebas.index')" :active="request()->routeIs('pruebaps.index')">
+                    <x-nav-link :href="route('pruebas.index')" :active="request()->routeIs('pruebas.index')">
                         {{ __('Prueba psicológica') }}
                     </x-nav-link>
                 </div>
@@ -104,7 +104,7 @@
             <x-responsive-nav-link :href="route('psicologos.index')" :active="request()->routeIs('psicologo.index')">
                 {{ __('Psicólogo') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('pruebas.index')" :active="request()->routeIs('pruebaps.index')">
+            <x-responsive-nav-link :href="route('pruebas.index')" :active="request()->routeIs('pruebas.index')">
                 {{ __('Prueba psicológica') }}
             </x-responsive-nav-link>
         </div>

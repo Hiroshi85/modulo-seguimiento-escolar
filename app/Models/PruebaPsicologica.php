@@ -11,7 +11,7 @@ class PruebaPsicologica extends Model
     protected $table ="prueba_psicologica";
     protected $primaryKey ="id";
     public $timestamps = true;
-    protected $fillable = ['nombre', 'tipo', 'edad_minima', "psicologo_id"];
+    protected $fillable = ['nombre', 'tipo', 'edad_minima', 'edad_maxima', "psicologo_id"];
 
     public function psicologo()
     {

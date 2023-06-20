@@ -13,7 +13,7 @@ class Psicologo extends Model
     public $timestamps = true;
     protected $fillable = ['nombres', 'apellidos', 'telefono', "genero","correo"];
 
-    public function prueba_psicologica()
+    public function pruebas()
     {
         return $this->hasMany(PruebaPsicologica::class);
     }
