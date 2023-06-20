@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <img src="{{url('/img/cepas_logo.jpg')}}" alt="Logo" class="w-12 h-auto">
+                        {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" /> --}}
                     </a>
                 </div>
 
@@ -15,22 +16,22 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('alumno.index')" :active="request()->routeIs('alumno.index')">
+                    <x-nav-link :href="route('alumnos.index')" :active="request()->routeIs('alumno.index')">
                         {{ __('Alumno') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('apoderado.index')" :active="request()->routeIs('apoderado.index')">
+                    <x-nav-link :href="route('apoderados.index')" :active="request()->routeIs('apoderado.index')">
                         {{ __('Apoderado') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('auxiliar.index')" :active="request()->routeIs('auxiliar.index')">
+                    <x-nav-link :href="route('auxiliares.index')" :active="request()->routeIs('auxiliar.index')">
                         {{ __('Auxiliar') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('asistencia.index')" :active="request()->routeIs('asistencia.index')">
+                    <x-nav-link :href="route('asistencias.index')" :active="request()->routeIs('asistencia.index')">
                         {{ __('Asistencia') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('psicologo.index')" :active="request()->routeIs('psicologo.index')">
+                    <x-nav-link :href="route('psicologos.index')" :active="request()->routeIs('psicologo.index')">
                         {{ __('Psicólogo') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('pruebaps.index')" :active="request()->routeIs('pruebaps.index')">
+                    <x-nav-link :href="route('pruebas.index')" :active="request()->routeIs('pruebaps.index')">
                         {{ __('Prueba psicológica') }}
                     </x-nav-link>
                 </div>
@@ -88,22 +89,22 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('alumno.index')" :active="request()->routeIs('alumno.index')">
+            <x-responsive-nav-link :href="route('alumnos.index')" :active="request()->routeIs('alumno.index')">
                 {{ __('Alumno') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('apoderado.index')" :active="request()->routeIs('apoderado.index')">
+            <x-responsive-nav-link :href="route('apoderados.index')" :active="request()->routeIs('apoderado.index')">
                 {{ __('Apoderado') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('auxiliar.index')" :active="request()->routeIs('auxiliar.index')">
+            <x-responsive-nav-link :href="route('auxiliares.index')" :active="request()->routeIs('auxiliar.index')">
                 {{ __('Auxiliar') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('asistencia.index')" :active="request()->routeIs('asistencia.index')">
+            <x-responsive-nav-link :href="route('asistencias.index')" :active="request()->routeIs('asistencia.index')">
                 {{ __('Asistencia') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('psicologo.index')" :active="request()->routeIs('psicologo.index')">
+            <x-responsive-nav-link :href="route('psicologos.index')" :active="request()->routeIs('psicologo.index')">
                 {{ __('Psicólogo') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('pruebaps.index')" :active="request()->routeIs('pruebaps.index')">
+            <x-responsive-nav-link :href="route('pruebas.index')" :active="request()->routeIs('pruebaps.index')">
                 {{ __('Prueba psicológica') }}
             </x-responsive-nav-link>
         </div>

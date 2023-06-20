@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Psicologo;
 
 class PsicologoController extends Controller
 {
@@ -11,7 +12,9 @@ class PsicologoController extends Controller
      */
     public function index()
     {
-        return view('psicologo.index');
+        $psicologos = Psicologo::all();
+
+        return view('psicologo.index', ['psicologos' => $psicologos]);
     }
 
     /**
@@ -19,15 +22,24 @@ class PsicologoController extends Controller
      */
     public function create()
     {
-        //
+        return view('psicologo.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $psico = new Psicologo;
+        $psico->nombres = $req->input("nombres");
+        $psico->apellidos = $req->input("apellidos");
+        $psico->telefono = $req->input("telefono");
+        $psico->genero = $req->input("genero");
+        $psico->correo = $req->input("correo");
+
+        $psico->save();
+
+        return redirect()->route('psicologos.index');
     }
 
     /**
@@ -43,15 +55,24 @@ class PsicologoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $psico = Psicologo::find($id);
+        return view('psicologo.edit', ['psicologo' => $psico]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $req, string $id)
     {
-        //
+        $psico = Psicologo::find($id);
+        $psico->nombres = $req->input("nombres");
+        $psico->apellidos = $req->input("apellidos");
+        $psico->telefono = $req->input("telefono");
+        $psico->genero = $req->input("genero");
+        $psico->correo = $req->input("correo");
+
+        $psico->save();
+        return redirect()->route('psicologos.index');
     }
 
     /**
@@ -59,6 +80,7 @@ class PsicologoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Psicologo::destroy($id);
+        return redirect()->route('psicologos.index');
     }
 }

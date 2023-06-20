@@ -29,12 +29,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function(){
-    Route::resource('alumno', AlumnoController::class);
-    Route::resource('apoderado', ApoderadoController::class);
-    Route::resource('psicologo', PsicologoController::class);
-    Route::resource('auxiliar', AuxiliarController::class);
-    Route::resource('asistencia', AsistenciaController::class);
-    Route::resource('pruebaps', PruebaPsicologicaController::class);
+    Route::resource('alumnos', AlumnoController::class);
+    Route::resource('apoderados', ApoderadoController::class);
+    Route::resource('psicologos', PsicologoController::class);
+    Route::resource('auxiliares', AuxiliarController::class);
+    Route::resource('asistencias', AsistenciaController::class);
+    Route::resource('pruebas', PruebaPsicologicaController::class);
 });
 
 

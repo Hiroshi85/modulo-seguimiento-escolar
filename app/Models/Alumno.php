@@ -18,7 +18,7 @@ class Alumno extends Model
         return $this->belongsTo(Apoderado::class);
     }
 
-    public function asistencia()
+    public function asistencias()
     {
         return $this->hasMany(Asistencia::class);
     }
