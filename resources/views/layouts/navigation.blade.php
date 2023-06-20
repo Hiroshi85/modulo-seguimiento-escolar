@@ -15,6 +15,24 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('alumno.index')" :active="request()->routeIs('alumno.index')">
+                        {{ __('Alumno') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('apoderado.index')" :active="request()->routeIs('apoderado.index')">
+                        {{ __('Apoderado') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('auxiliar.index')" :active="request()->routeIs('auxiliar.index')">
+                        {{ __('Auxiliar') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('asistencia.index')" :active="request()->routeIs('asistencia.index')">
+                        {{ __('Asistencia') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('psicologo.index')" :active="request()->routeIs('psicologo.index')">
+                        {{ __('Psicólogo') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('pruebaps.index')" :active="request()->routeIs('pruebaps.index')">
+                        {{ __('Prueba psicológica') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -69,6 +87,24 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('alumno.index')" :active="request()->routeIs('alumno.index')">
+                {{ __('Alumno') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('apoderado.index')" :active="request()->routeIs('apoderado.index')">
+                {{ __('Apoderado') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('auxiliar.index')" :active="request()->routeIs('auxiliar.index')">
+                {{ __('Auxiliar') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('asistencia.index')" :active="request()->routeIs('asistencia.index')">
+                {{ __('Asistencia') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('psicologo.index')" :active="request()->routeIs('psicologo.index')">
+                {{ __('Psicólogo') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('pruebaps.index')" :active="request()->routeIs('pruebaps.index')">
+                {{ __('Prueba psicológica') }}
             </x-responsive-nav-link>
         </div>
 
