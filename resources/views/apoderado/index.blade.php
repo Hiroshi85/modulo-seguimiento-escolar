@@ -40,7 +40,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->apellidos}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->correo}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->telefono}}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{$item->edad}}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">{{$item->edad()}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex">
                                             <a href="{{route('apoderados.edit', $item->id)}}" class="flex-1 font-medium text-blue-600 dark:text-blue-500 hover:underline"> Editar</a>

@@ -40,8 +40,8 @@
                             <input required type="email" id="correo" name="correo" class="w-full">
                           </div>
                           <div>
-                            <label for="edad" class="block">Edad:</label>
-                            <input required type="number" id="edad" name="edad" class="w-full" max="100" min="18" value="20">
+                            <label for="fecha" class="block">Fecha de nacimiento:</label>
+                            <input required type="date" id="fecha" name="fecha" class="w-full">
                           </div>
                           <div class="col-span-2 lg:col-span-3">
                             <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 border border-blue-500 rounded shadow">

@@ -35,20 +35,20 @@ class ApoderadoController extends Controller
             'apellidos' => 'required|max:50',
             'telefono' => 'required|max:13',
             'correo' => 'required|max:50|email',
-            'edad' => 'required|numeric'
+            'fecha' => 'required|date'
         ],[
             'nombres.required' => 'Este campo es obligatorio',
             'apellidos.required' => 'Este campo es obligatorio',
             'telefono.required' => 'Este campo es obligatorio',
             'email.required' => 'Este campo es obligatorio',
-            'edad.required' => 'Este campo es obligatorio',
+            'fecha.required' => 'Este campo es obligatorio',
         ]);
 
         $ap = new Apoderado;
         $ap->nombres = $req->input("nombres");
         $ap->apellidos = $req->input("apellidos");
         $ap->telefono = $req->input("telefono");
-        $ap->edad = $req->input("edad");
+        $ap->fechaNacimiento = $req->input("fecha");
         $ap->correo = $req->input("correo");
 
         $ap->save();
@@ -84,20 +84,20 @@ class ApoderadoController extends Controller
             'apellidos' => 'required|max:50',
             'telefono' => 'required|max:13',
             'correo' => 'required|max:50|email',
-            'edad' => 'required|numeric'
+            'fecha' => 'required|date'
         ],[
             'nombres.required' => 'Este campo es obligatorio',
             'apellidos.required' => 'Este campo es obligatorio',
             'telefono.required' => 'Este campo es obligatorio',
             'email.required' => 'Este campo es obligatorio',
-            'edad.required' => 'Este campo es obligatorio',
+            'fecha.required' => 'Este campo es obligatorio',
         ]);
 
         $ap = Apoderado::find($id);
         $ap->nombres = $req->input("nombres");
         $ap->apellidos = $req->input("apellidos");
         $ap->telefono = $req->input("telefono");
-        $ap->edad = $req->input("edad");
+        $ap->fechaNacimiento = $req->input("fecha");
         $ap->correo = $req->input("correo");
 
         $ap->save();

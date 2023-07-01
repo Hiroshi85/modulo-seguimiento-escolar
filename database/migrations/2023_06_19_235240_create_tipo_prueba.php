@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('apoderado', function (Blueprint $table) {
+        Schema::create('tipo_prueba', function (Blueprint $table) {
             $table->id();
-            $table->string('nombres');
-            $table->string('apellidos');
-            $table->string('telefono');
-            $table->string('correo')->unique();
-            $table->date('fechaNacimiento');
-            $table->timestamps();
+            $table->string('tipo');
+            // $table->timestamps();
         });
+
+        DB::table('tipo_prueba')->insert([
+        ['tipo' => 'Emocional'],
+        ['tipo' => 'Inteligencia'],
+        ['tipo' => 'Aptitud'],
+        ]);
     }
 
     /**
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('apoderado');
+        Schema::dropIfExists('tipo_prueba');
     }
 };
