@@ -33,10 +33,6 @@
                             <input required type="text" id="apellidos" name="apellidos" class="w-full" value="{{$alumno->apellidos}}">
                           </div>
                           <div>
-                            <label for="edad" class="block">Edad:</label>
-                            <input required type="number" id="edad" name="edad" class="w-full" max="18" min="5" value="{{$alumno->edad}}">
-                          </div>
-                          <div>
                             <label for="fecha" class="block">Fecha de nacimiento:</label>
                             <input required type="date" id="fecha" name="fecha" class="w-full" value="{{$alumno->fechaNacimiento}}">
                           </div>

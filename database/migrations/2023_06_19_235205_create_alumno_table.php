@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('nombres');
             $table->string('apellidos');
-            $table->integer('edad');
             $table->date('fechaNacimiento');
             $table->unsignedBigInteger('apoderado_id')->nullable();
             $table->char('genero',1);

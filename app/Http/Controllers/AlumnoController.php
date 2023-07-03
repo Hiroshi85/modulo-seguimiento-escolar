@@ -38,7 +38,6 @@ class AlumnoController extends Controller
         $al->nombres = $req->input("nombres");
         $al->apellidos = $req->input("apellidos");
         $al->fechaNacimiento = $req->input("fecha");
-        $al->edad = $req->input("edad");
         $al->genero = $req->input("genero");
         $al->apoderado_id =$req->input("apoderado");
         // $al->correo = $req->input("correo");
@@ -75,7 +74,6 @@ class AlumnoController extends Controller
         $al->nombres = $req->input("nombres");
         $al->apellidos = $req->input("apellidos");
         $al->fechaNacimiento = $req->input("fecha");
-        $al->edad = $req->input("edad");
         $al->genero = $req->input("genero");
         $al->apoderado_id =$req->input("apoderado");
         

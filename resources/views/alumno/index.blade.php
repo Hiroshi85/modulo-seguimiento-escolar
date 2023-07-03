@@ -39,7 +39,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->id}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->nombres}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->apellidos}}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{$item->edad}}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">{{$item->edad()}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->fechaNacimiento}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         @switch($item->genero)

@@ -32,10 +32,6 @@
                             <input required type="text" id="apellidos" name="apellidos" class="w-full dark:text-gray-800">
                           </div>
                           <div>
-                            <label for="edad" class="block">Edad:</label>
-                            <input required type="number" id="edad" name="edad" class="w-full dark:text-gray-800" max="18" min="5" value="5">
-                          </div>
-                          <div>
                             <label for="fecha" class="block">Fecha de nacimiento:</label>
                             <input required type="date" id="fecha" name="fecha" class="w-full dark:text-gray-800">
                           </div>
