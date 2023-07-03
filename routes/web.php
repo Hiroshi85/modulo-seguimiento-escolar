@@ -28,13 +28,31 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::prefix('dashboard')->middleware(['auth'])->group(function(){
+Route::prefix('dashboard')->middleware(['auth', 'role:admin'])->group(function(){
     Route::resource('alumnos', AlumnoController::class);
     Route::resource('apoderados', ApoderadoController::class);
     Route::resource('psicologos', PsicologoController::class);
     Route::resource('auxiliares', AuxiliarController::class);
     Route::resource('asistencias', AsistenciaController::class);
+    // Route::resource('pruebas', PruebaPsicologicaController::class);
+});
+
+Route::prefix('dashboard')->middleware(['auth', 'role:psicologo'])->group(function(){
+    // Route::resource('alumnos', AlumnoController::class);
+    // Route::resource('apoderados', ApoderadoController::class);
+    // Route::resource('psicologos', PsicologoController::class);
+    // Route::resource('auxiliares', AuxiliarController::class);
+    // Route::resource('asistencias', AsistenciaController::class);
     Route::resource('pruebas', PruebaPsicologicaController::class);
+});
+
+Route::prefix('dashboard')->middleware(['auth', 'role:auxiliar'])->group(function(){
+    // Route::resource('alumnos', AlumnoController::class);
+    // Route::resource('apoderados', ApoderadoController::class);
+    // Route::resource('psicologos', PsicologoController::class);
+    // Route::resource('auxiliares', AuxiliarController::class);
+    Route::resource('asistencias', AsistenciaController::class);
+    // Route::resource('pruebas', PruebaPsicologicaController::class);
 });
 
 

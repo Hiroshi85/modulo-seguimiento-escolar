@@ -18,6 +18,13 @@ return new class extends Migration
             $table->string('telefono')->nullable();
             $table->char('genero',1);
             $table->string('correo')->unique();
+            $table->unsignedBigInteger('user_id')->nullable();
+            
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('restrict');
+
             $table->timestamps();
         });
     }

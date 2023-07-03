@@ -11,7 +11,7 @@ class Psicologo extends Model
     protected $table ="psicologo";
     protected $primaryKey ="id";
     public $timestamps = true;
-    protected $fillable = ['nombres', 'apellidos', 'telefono', "genero","correo"];
+    protected $fillable = ['nombres', 'apellidos', 'telefono', "genero","correo","user_id"];
 
     public function pruebas()
     {

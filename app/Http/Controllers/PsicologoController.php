@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Psicologo;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class PsicologoController extends Controller
 {
@@ -37,6 +39,15 @@ class PsicologoController extends Controller
         $psico->genero = $req->input("genero");
         $psico->correo = $req->input("correo");
 
+        
+        $user = User::create([
+            'name' => $psico->nombres,
+            'email' => $psico->correo,
+            'password' => Hash::make($psico->telefono),
+        ]);
+        $user->assignRole('psicologo');
+
+        $psico->user_id = $user->id;
         $psico->save();
 
         return redirect()->route('psicologos.index');
@@ -80,6 +91,8 @@ class PsicologoController extends Controller
      */
     public function destroy(string $id)
     {
+        $psico = Psicologo::find($id);
+        User::destroy($psico->user_id);
         Psicologo::destroy($id);
         return redirect()->route('psicologos.index');
     }

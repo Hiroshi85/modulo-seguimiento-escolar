@@ -11,5 +11,5 @@ class Auxiliar extends Model
     protected $table ="auxiliar";
     protected $primaryKey ="id";
     public $timestamps = true;
-    protected $fillable = ['nombres', 'apellidos', 'telefono', "genero","correo"];
+    protected $fillable = ['nombres', 'apellidos', 'telefono', "genero","correo","user_id"];
 }
