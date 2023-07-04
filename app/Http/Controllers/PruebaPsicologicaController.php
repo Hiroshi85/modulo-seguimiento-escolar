@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PruebaPsicologica;
 use App\Models\Psicologo;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Http\File;
 
 class PruebaPsicologicaController extends Controller
 {
@@ -42,7 +46,12 @@ class PruebaPsicologicaController extends Controller
         $pp->tipo = $req->input("tipo");
         $pp->edad_minima = $req->input("minima");
         $pp->edad_maxima = $req->input("maxima");
-        $pp->psicologo_id = $req->input("psicologo");
+        $psico = Psicologo::where('user_id',Auth::id())->first();
+        $pp->psicologo_id = $psico->id;
+        $pp->online_url = $req->input("p-online");
+        if($req->hasFile('archivo')){
+            $pp->file_url = $this->uploadFile($req);
+        }
         // $pp->correo = $req->input("correo");
 
         $pp->save();
@@ -75,11 +84,14 @@ class PruebaPsicologicaController extends Controller
         $pp = PruebaPsicologica::find($id);
         $pp->nombre = $req->input("nombre");
         $pp->tipo = $req->input("tipo");
-        $pp->edad_minima = $req->input("edad_minima");
-        $pp->edad_maxima = $req->input("edad_maxima");
-        $pp->psicologo_id = $req->input("psicologo_id");
-        // $pp->correo = $req->input("correo");
-
+        $pp->edad_minima = $req->input("minima");
+        $pp->edad_maxima = $req->input("maxima");
+        // $psico = Psicologo::where('user_id',Auth::id())->first();
+        // $pp->psicologo_id = $psico->id;
+        $pp->online_url = $req->input("p-online");
+        if($req->hasFile('archivo')){
+            $pp->file_url = $this->uploadFile($req);
+        }
         $pp->save();
         return redirect()->route('pruebas.index');
     }
@@ -91,5 +103,12 @@ class PruebaPsicologicaController extends Controller
     {
         PruebaPsicologica::destroy($id);
         return redirect()->route('pruebas.index');
+    }
+
+    private function uploadFile(Request $req){
+        $archivo = $req->file('archivo');
+        $path = Storage::putFile('files', $archivo);
+        error_log($path);
+        return $path;
     }
 }

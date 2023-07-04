@@ -20,7 +20,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{-- Tabla --}}
                     {{-- {{ __("Mantenedor de prueba") }} --}}
-                    <form method="POST" action="{{ route('pruebas.store') }}" class="max-w-7xl mx-auto">
+                    <form method="POST" action="{{ route('pruebas.store') }}" class="max-w-7xl mx-auto" enctype="multipart/form-data">
                         @csrf
                         <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
                           <div>
@@ -40,13 +40,12 @@
                             <input required type="number" id="maxima" name="maxima" class="w-full dark:text-gray-800" max="18" min="10" value="10">
                           </div>
                           <div>
-                            <label for="psicologo" class="block">Registrado por: </label>
-                            <select required id="psicologo" name="psicologo" class="w-full dark:text-gray-800">
-                              <option value="" disabled selected>Seleccionar</option>
-                              @foreach ($psicologos as $ps )
-                                <option value="{{$ps->id}}">{{$ps->nombres}} {{$ps->apellidos}}</option>  
-                              @endforeach
-                            </select>
+                            <label for="p-online" class="block">URL prueba online</label>
+                            <input type="text" id="p-online" name="p-online" class="w-full dark:text-gray-800">
+                          </div>
+                          <div>
+                            <label for="archivo" class="block">Archivo</label>
+                            <input type="file" id="archivo" name="archivo" class="w-full dark:text-gray-800">
                           </div>
                           <div class="col-span-3 lg:col-span-2">
                             <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 border border-blue-500 rounded shadow">

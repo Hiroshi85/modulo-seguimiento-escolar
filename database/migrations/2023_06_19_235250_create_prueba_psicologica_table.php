@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string("tipo");
             $table->unsignedBigInteger('edad_minima')->nullable();
             $table->unsignedBigInteger('edad_maxima')->nullable();
+            $table->string('file_url')->nullable();
+            $table->string('online_url')->nullable();
 
-            $table->unsignedBigInteger('psicologo_id')->nullable();
+            $table->unsignedBigInteger('psicologo_id');
             $table->foreign('psicologo_id')
                 ->references('id')
                 ->on('psicologo')

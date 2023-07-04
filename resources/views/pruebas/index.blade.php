@@ -28,6 +28,7 @@
                                     <th class="px-6 py-3 text-center text-md font-semibold text-gray-500 uppercase tracking-wider">Tipo</th>
                                     <th class="px-6 py-3 text-center text-md font-semibold text-gray-500 uppercase tracking-wider">Rango de edad</th>
                                     <th class="px-6 py-3 text-center text-md font-semibold text-gray-500 uppercase tracking-wider">Registrado por</th>
+                                    <th class="px-6 py-3 text-center text-md font-semibold text-gray-500 uppercase tracking-wider">Acceso</th>
                                     <th class="px-6 py-3 text-center text-md font-semibold text-gray-500 uppercase tracking-wider">Opciones</th>
                                 </tr>
                             </thead>
@@ -39,6 +40,15 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->tipo}}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->edad_minima}} a {{$item->edad_maxima}} años</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{$item->psicologo->nombres}} {{$item->psicologo->apellidos}}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                    @if(!is_null($item->online_url))
+                                        <a href="{{$item->online_url}}" target="\blank" class="font-medium text-blue-600 dark:text-blue-800 hover:underline">Prueba Online</a><br>
+                                    @endif
+                                    @if(!is_null($item->file_url))
+                                        <a href="{{route('files', $item->id)}}" class="font-medium text-blue-600 dark:text-blue-800 hover:underline">Archivo</a>
+                                    @endif
+                                    
+                                    </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex">
                                             <a href="{{route('pruebas.edit', $item->id)}}" class="flex-1 font-medium text-blue-600 dark:text-blue-500 hover:underline"> Editar</a>

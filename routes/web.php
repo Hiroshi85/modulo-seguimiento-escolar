@@ -8,6 +8,7 @@ use App\Http\Controllers\AuxiliarController;
 use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\PruebaPsicologicaController;
 use App\Http\Controllers\BuscarController;
+use App\Http\Controllers\PruebaArchivoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::get('buscar/asistencias', [BuscarController::class, 'buscarAsistencia'])->name('asist.buscar');
 });
 
+Route::get('/files/{id}', [PruebaArchivoController::class, 'download'])->middleware(['auth', 'role:psicologo'])->name('files');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
