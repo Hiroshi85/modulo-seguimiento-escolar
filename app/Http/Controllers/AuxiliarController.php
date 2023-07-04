@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class AuxiliarController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+        $this->middleware('role:admin')->except(['index']);
+    }
     /**
      * Display a listing of the resource.
      */

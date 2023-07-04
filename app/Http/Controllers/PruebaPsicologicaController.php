@@ -8,6 +8,11 @@ use App\Models\Psicologo;
 
 class PruebaPsicologicaController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+        $this->middleware('role:psicologo');
+    }
     /**
      * Display a listing of the resource.
      */
