@@ -17,12 +17,11 @@ class AlumnoFactory extends Factory
     public function definition(): array
     {
         return [
-            ['nombres' => fake()->firstName(), 
-            'apellidos'=> fake()->lastName(), 
-            'edad'=>fake()->numberBetween(10,17), 
+            "nombres" => fake()->firstName(), 
+            "apellidos"=> fake()->lastName(), 
             "fechaNacimiento"=> fake()->dateTimeBetween('-17 years', '-10 years'), 
-            "genero" =>fake()->randomElements(['M', 'F']),
-            ]
+            "genero" =>fake()->randomElement(['M', 'F']),
+            "apoderado_id" =>fake()->numberBetween(1, 10),
         ];
     }
 }
