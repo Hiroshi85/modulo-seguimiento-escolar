@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('asistencia', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
-            $table->enum('tipo', ['presente', 'ausente', 'tarde'])->default('presente');
-            $table->unsignedSmallInteger('anho');
+            $table->enum('tipo', ['presente', 'falta', 'tarde', 'justificado'])->default('falta');
             $table->unsignedBigInteger('alumno_id');
             
             $table->foreign('alumno_id')
@@ -23,7 +22,7 @@ return new class extends Migration
             ->on('alumno')
             ->onDelete('restrict');
 
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

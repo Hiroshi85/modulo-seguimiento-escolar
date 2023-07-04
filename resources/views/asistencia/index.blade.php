@@ -8,8 +8,55 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Mantenedor de Asistencia") }}
+                <div class="px-6 py-4 text-gray-900 dark:text-gray-100 flex justify-between">
+                    <p class="font-xl text-gray-800 dark:text-white font-semibold py-2 px-4">Toma de Asistencia</p>
+                    <a class="text-gray-800 dark:text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow hover:bg-gray-200 transition duration-300 ease-in-out"
+                    href="{{ route('asistencias.create') }}">
+                        Otros días
+                    </a>                    
+                </div>
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <div class="py-5 text-gray-900 dark:text-gray-100 text-5xl">
+                            <p>{{Str::title($day)}}, {{$today}}</p>
+                        </div>
+                        @if (true)
+                            <form id="myForm" method="POST" action="{{ route('asistencias.store') }}" class="max-w-7xl mx-auto">
+                                @csrf
+                                <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
+                                    <input type="hidden" name="fecha" value="{{$today}}">
+                                    <div class="col-span-2 lg:col-span-2">
+                                        <label for="alumno" class="block">Alumno: </label>
+                                        <select required id="alumno" name="alumno" class="w-full dark:text-gray-800" required>
+                                        <option value="" disabled selected>Seleccionar</option>
+                                        @foreach ($alumnos as $al)
+                                            <option value="{{$al->id}}">{{$al->nombres}} {{$al->apellidos}}</option>  
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-span-2 lg:col-span-1">
+                                        <label for="tipo" class="block">Asistencia</label>
+                                        <select required id="tipo" name="tipo" class="w-full dark:text-gray-800" required>
+                                        <option value="P" selected>Presente</option>
+                                        <option value="F">Falta</option>
+                                        <option value="T">Tarde</option>
+                                        <option value="J">Justificado</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-span-2 lg:col-span-3">
+                                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 border border-blue-500 rounded shadow">
+                                        Guardar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>         
+                        @else
+                        <div class="p-5 text-gray-900 dark:text-gray-100 text-xl">
+                            <p>Día no habilitado</p>
+                        </div>
+                        @endif
+                                         
+                    </div>
                 </div>
             </div>
         </div>
