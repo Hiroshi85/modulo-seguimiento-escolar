@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('prueba_psicologica', function (Blueprint $table) {
             $table->id();
             $table->string("nombre");
-            $table->string("tipo");
-            $table->unsignedBigInteger('edad_minima')->nullable();
-            $table->unsignedBigInteger('edad_maxima')->nullable();
+            $table->tinyInteger('edad_minima')->nullable();
+            $table->tinyInteger('edad_maxima')->nullable();
             $table->string('file_url')->nullable();
             $table->string('online_url')->nullable();
 
@@ -24,6 +23,12 @@ return new class extends Migration
             $table->foreign('psicologo_id')
                 ->references('id')
                 ->on('psicologo')
+                ->onDelete('restrict');
+
+            $table->unsignedBigInteger('tipo_id');
+            $table->foreign('tipo_id')
+                ->references('id')
+                ->on('tipo_prueba')
                 ->onDelete('restrict');
 
             $table->timestamps();

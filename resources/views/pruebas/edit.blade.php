@@ -30,7 +30,11 @@
                           </div>
                           <div>
                             <label for="tipo" class="block">Tipo:</label>
-                            <input required type="text" id="tipo" name="tipo" class="w-full dark:text-gray-800" value="{{$prueba->tipo}}">
+                            <select required id="tipo" name="tipo" class="w-full">
+                              @foreach ($tipos as $it )
+                              <option value={{$it->id}} @if($prueba->tipo->id == $it->id) selected @endif>{{$it->tipo}}</option>
+                              @endforeach
+                            </select>
                           </div>
                           <div>
                             <label for="minima" class="block">Edad mínima:</label>

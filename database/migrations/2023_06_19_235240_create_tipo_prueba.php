@@ -17,11 +17,6 @@ return new class extends Migration
             // $table->timestamps();
         });
 
-        DB::table('tipo_prueba')->insert([
-        ['tipo' => 'Emocional'],
-        ['tipo' => 'Inteligencia'],
-        ['tipo' => 'Aptitud'],
-        ]);
     }
 
     /**

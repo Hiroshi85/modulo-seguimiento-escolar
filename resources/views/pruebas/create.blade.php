@@ -28,9 +28,14 @@
                             <input required type="text" id="nombre" name="nombre" class="w-full dark:text-gray-800">
                           </div>
                           <div>
-                            <label for="tipo" class="block">Tipo:</label>
-                            <input required type="text" id="tipo" name="tipo" class="w-full dark:text-gray-800">
-                          </div>
+                              <label for="tipo" class="block">Tipo:</label>
+                              <select required id="tipo" name="tipo" class="w-full">
+                                @foreach ($tipos as $it )
+                                <option value={{$it->id}}>{{$it->tipo}}</option>
+                                @endforeach
+                              </select>
+                            </div>
+                            
                           <div>
                             <label for="minima" class="block">Edad mínima:</label>
                             <input required type="number" id="minima" name="minima" class="w-full dark:text-gray-800" max="18" min="10" value="10">
