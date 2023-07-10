@@ -9,6 +9,7 @@ use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\PruebaPsicologicaController;
 use App\Http\Controllers\BuscarController;
 use App\Http\Controllers\PruebaArchivoController;
+use App\Http\Controllers\ConductaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::resource('auxiliares', AuxiliarController::class);
     Route::resource('asistencias', AsistenciaController::class);
     Route::resource('pruebas', PruebaPsicologicaController::class);
+    Route::resource('conductas', ConductaController::class);
     Route::get('buscar/asistencias', [BuscarController::class, 'buscarAsistencia'])->name('asist.buscar');
 });
 

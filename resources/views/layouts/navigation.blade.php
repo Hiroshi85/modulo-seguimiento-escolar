@@ -28,6 +28,9 @@
                     <x-nav-link :href="route('asistencias.index')" :active="request()->routeIs('asistencia.index')">
                         {{ __('Asistencia') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('conductas.index')" :active="request()->routeIs('conducta.index')">
+                        {{ __('Conductas') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('psicologos.index')" :active="request()->routeIs('psicologo.index')">
                         {{ __('Psicólogo') }}
                     </x-nav-link>
@@ -100,6 +103,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('asistencias.index')" :active="request()->routeIs('asistencia.index')">
                 {{ __('Asistencia') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('conductas.index')" :active="request()->routeIs('conducta.index')">
+                {{ __('Conducta') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('psicologos.index')" :active="request()->routeIs('psicologo.index')">
                 {{ __('Psicólogo') }}

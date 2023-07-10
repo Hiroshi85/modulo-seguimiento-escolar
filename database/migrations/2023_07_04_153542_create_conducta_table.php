@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('conducta', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nombre');
+            $table->tinyInteger('puntaje');
+            // $table->unsignedBigInteger('severidad_id');
+            
+            // $table->foreign('severidad_id')
+            // ->references('id')
+            // ->on('severidad')
+            // ->onDelete('restrict');
+
         });
     }
 
