@@ -24,6 +24,11 @@ class Alumno extends Model
         return $this->hasMany(Asistencia::class);
     }
 
+    public function comportamientos()
+    {
+        return $this->hasMany(Comportamiento::class);
+    }
+
     public function edad()
     {
         return Carbon::parse($this->attributes['fechaNacimiento'])->age;

@@ -12,4 +12,9 @@ class Conducta extends Model
     protected $primaryKey ="id";
     public $timestamps = false;
     protected $fillable = ['nombre', 'puntaje'];
+
+    public function comportamientos(): HasMany
+    {
+        return $this->hasMany(Comportamiento::class);
+    }
 }

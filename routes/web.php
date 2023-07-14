@@ -10,6 +10,7 @@ use App\Http\Controllers\PruebaPsicologicaController;
 use App\Http\Controllers\BuscarController;
 use App\Http\Controllers\PruebaArchivoController;
 use App\Http\Controllers\ConductaController;
+use App\Http\Controllers\ComportamientoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,13 @@ Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::resource('pruebas', PruebaPsicologicaController::class);
     Route::resource('conductas', ConductaController::class);
     Route::get('buscar/asistencias', [BuscarController::class, 'buscarAsistencia'])->name('asist.buscar');
+    Route::prefix('comportamientos')->group(function(){
+        Route::get('/', [ComportamientoController::class, 'index'])->name('comportamientos.index');
+        Route::post('/',[ComportamientoController::class, 'store'])->name('comportamientos.store');
+        Route::get('/show', [ComportamientoController::class, 'show'])->name('comportamientos.show');
+        Route::get('/alumnos/{id}', [ComportamientoController::class, 'getByAlumno'])->name('comportamientos.get');
+        Route::get('/delete/{id}', [ComportamientoController::class, 'destroy'])->name('comportamientos.destroy');
+    });
 });
 
 Route::get('/files/{id}', [PruebaArchivoController::class, 'download'])->middleware(['auth', 'role:psicologo'])->name('files');
