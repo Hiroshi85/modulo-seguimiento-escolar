@@ -236,5 +236,4 @@
     });
 
   // Exponer la función de abrir el modal globalmente
-//   window.openModal = openModal;
 </script>
