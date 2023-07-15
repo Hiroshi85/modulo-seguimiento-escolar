@@ -41,6 +41,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::resource('pruebas', PruebaPsicologicaController::class);
     Route::resource('conductas', ConductaController::class);
     Route::get('buscar/asistencias', [BuscarController::class, 'buscarAsistencia'])->name('asist.buscar');
+    Route::get('buscar/alumnos', [BuscarController::class, 'buscarAlumno'])->name('alumn.buscar');
     Route::prefix('comportamientos')->group(function(){
         Route::get('/', [ComportamientoController::class, 'index'])->name('comportamientos.index');
         Route::post('/',[ComportamientoController::class, 'store'])->name('comportamientos.store');

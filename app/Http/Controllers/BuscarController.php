@@ -16,4 +16,12 @@ class BuscarController extends Controller
         error_log($asistencia);
         return ['tipo'=>strtoupper($asistencia[0]->tipo[0]), 'id_asistencia' => $asistencia[0]->id];
     }
+
+    public function buscarAlumno(Request $req){
+        $nom_alumno = $req->query('alumno');
+        $alumnos = Alumno::where('nombres', 'like',"%".$nom_alumno."%")
+            ->select("nombres","apellidos","id")->get();
+        error_log($alumnos);
+        return ['alumnos' => $alumnos];
+    }
 }
