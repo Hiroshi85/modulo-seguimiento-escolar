@@ -14,16 +14,22 @@ return new class extends Migration
         Schema::create('asistencia', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
-            $table->enum('tipo', ['presente', 'falta', 'tarde', 'justificado'])->default('falta');
             $table->unsignedBigInteger('alumno_id');
-            
+            $table->tinyInteger('tipo_id')->unsigned();
+
             $table->foreign('alumno_id')
             ->references('id')
             ->on('alumno')
             ->onDelete('restrict');
 
+            $table->foreign('tipo_id')
+            ->references('id')
+            ->on('tipo_asistencia')
+            ->onDelete('restrict');
             // $table->timestamps();
         });
+
+        
     }
 
     /**

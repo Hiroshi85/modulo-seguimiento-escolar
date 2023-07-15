@@ -37,10 +37,10 @@
                                     <div class="col-span-2 lg:col-span-1">
                                         <label for="tipo" class="block">Asistencia</label>
                                         <select required id="tipo" name="tipo" class="w-full dark:text-gray-800" required>
-                                        <option value="P" selected>Presente</option>
-                                        <option value="F">Falta</option>
-                                        <option value="T">Tarde</option>
-                                        <option value="J">Justificado</option>
+                                        <option value="1" selected>Presente</option>
+                                        <option value="2">Falta</option>
+                                        <option value="3">Justificado</option>
+                                        <option value="4">Tarde</option>
                                         </select>
                                     </div>
                                     <div class="col-span-2 lg:col-span-3">

@@ -44,10 +44,10 @@
                             <label for="tipo" class="block">Asistencia</label>
                               <select disabled required id="tipo" name="tipo" class="w-full dark:text-gray-800">
                               <option value="" disabled selected>Seleccionar</option>
-                              <option value="P">Presente</option>
-                              <option value="F">Falta</option>
-                              <option value="T">Tarde</option>
-                              <option value="J">Justificado</option>
+                              <option value="1">Presente</option>
+                              <option value="2">Falta</option>
+                              <option value="3">Justificado</option>
+                              <option value="4">Tarde</option>
                               </select>
                           </div>
   
@@ -81,20 +81,22 @@
     .then(data => {
       // Colocar el valor obtenido en el tercer input
       // Recorrer todas las opciones del dropdown
+      console.log(data.id_asistencia);
       for (var i = 0; i < tipo.options.length; i++) {
           // Obtener el valor de la opción
           var optionValue = tipo.options[i].value;
-
+          console.log(data.tipo)
           // Verificar si el valor coincide con el carácter
-          if (optionValue === data.tipo) {
+          if (optionValue == data.tipo) {
               // Establecer la opción como seleccionada
               // tipo.options[i].selected = true;
               tipo.selectedIndex = i;
+              tipoInput.disabled = false;
               break; // Salir del bucle
           }
       }
-      tipoInput.disabled = false;
-      myForm.action = data.id_asistencia
+      
+      myForm.action = "/dashboard/asistencias/"+ data.id_asistencia
     })
     .catch(error => {
       tipoInput.disabled = true;

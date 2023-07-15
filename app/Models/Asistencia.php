@@ -11,10 +11,15 @@ class Asistencia extends Model
     protected $table ="asistencia";
     protected $primaryKey ="id";
     public $timestamps = false;
-    protected $fillable = ['fecha', 'tipo', 'alumno_id'];
+    protected $fillable = ['fecha', 'tipo_id', 'alumno_id'];
 
     public function alumno()
     {
         return $this->belongsTo(Alumno::class);
+    }
+
+    public function tipo()
+    {
+        return $this->belongsTo(TipoAsistencia::class);
     }
 }

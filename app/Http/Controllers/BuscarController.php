@@ -12,9 +12,9 @@ class BuscarController extends Controller
     public function buscarAsistencia(Request $req){
         $fecha = $req->query('fecha');
         $alumno_id = $req->query('alumno');
-        $asistencia = Asistencia::where('alumno_id',$alumno_id)->where('fecha', $fecha)->get();
+        $asistencia = Asistencia::where('alumno_id',$alumno_id)->where('fecha', $fecha)->with('tipo')->get();
         error_log($asistencia);
-        return ['tipo'=>strtoupper($asistencia[0]->tipo[0]), 'id_asistencia' => $asistencia[0]->id];
+        return ['tipo'=>$asistencia[0]->tipo->id, 'id_asistencia' => $asistencia[0]->id];
     }
 
     public function buscarAlumno(Request $req){

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Alumno;
 use App\Models\Asistencia;
+use App\Models\TipoAsistencia;
 
 class AsistenciaController extends Controller
 {
@@ -23,14 +24,14 @@ class AsistenciaController extends Controller
         $today = Carbon::now()->format('d-m-Y');
         $today_f = Carbon::now()->format('Y-m-d');
         $day = now()->dayName;
-        $enable = Carbon::now()->isWeekday();
-        $num = Asistencia::whereDate('fecha', Carbon::today())->get()->count();
+        $enable = true; //Carbon::now()->isWeekday();
+        $num = Asistencia::whereDate('fecha', Carbon::today())->with('tipo')->get()->count();
         if($num <= 0 && $enable){
             foreach($alumnos as $it){
                 Asistencia::create([
                     'fecha' => $today_f,
                     'alumno_id' => $it->id,
-                    'tipo' => 'falta',
+                    'tipo_id' => 2,
                 ]);
             }
         }
@@ -53,28 +54,29 @@ class AsistenciaController extends Controller
      */
     public function store(Request $req)
     {
-        $tipo = '';
-        switch ($req->input('tipo')) {
-            case 'F':
-                $tipo="falta";
-                break;
-            case 'P':
-                $tipo="presente";
-                break;
-            case 'T':
-                $tipo="tarde";
-                break;
-            case 'J':
-                $tipo="justificado";
-                break;
-            default:
-                # code...
-                break;
-        }
+        $tipo = $req->input('tipo');
+        // $tipo = '';
+        // switch ($req->input('tipo')) {
+        //     case 'F':
+        //         $tipo="falta";
+        //         break;
+        //     case 'P':
+        //         $tipo="presente";
+        //         break;
+        //     case 'T':
+        //         $tipo="tarde";
+        //         break;
+        //     case 'J':
+        //         $tipo="justificado";
+        //         break;
+        //     default:
+        //         # code...
+        //         break;
+        // }
         
         Asistencia::where('alumno_id',$req->input("alumno"))
                     ->where('fecha', Carbon::parse($req->input("fecha"))->format('Y-m-d'))
-                    ->update(['tipo'=>$tipo]);
+                    ->update(['tipo_id'=>$tipo]);
         
         return redirect()->route('asistencias.index');
     }
@@ -93,27 +95,27 @@ class AsistenciaController extends Controller
      */
     public function update(Request $req, string $id)
     {
-        $tipo = '';
-        switch ($req->input('tipo')) {
-            case 'F':
-                $tipo="falta";
-                break;
-            case 'P':
-                $tipo="presente";
-                break;
-            case 'T':
-                $tipo="tarde";
-                break;
-            case 'J':
-                $tipo="justificado";
-                break;
-            default:
-                # code...
-                break;
-        }
+        $tipo = $req->input('tipo');
+        // switch ($req->input('tipo')) {
+        //     case 'F':
+        //         $tipo="falta";
+        //         break;
+        //     case 'P':
+        //         $tipo="presente";
+        //         break;
+        //     case 'T':
+        //         $tipo="tarde";
+        //         break;
+        //     case 'J':
+        //         $tipo="justificado";
+        //         break;
+        //     default:
+        //         # code...
+        //         break;
+        // }
         
         $as = Asistencia::find($id);
-        $as->tipo=$tipo;
+        $as->tipo_id=$tipo;
         $as->save();
         
         return redirect()->route('asistencias.create');

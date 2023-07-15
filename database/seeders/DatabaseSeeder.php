@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         Alumno::factory(8)->create();
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(TipoAsistenciaSeeder::class);
         $this->call(TipoPruebaSeeder::class);
         $this->call(ConductaSeeder::class);
     }
